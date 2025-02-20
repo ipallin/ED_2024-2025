@@ -7,8 +7,13 @@ public class DoubleList {
     Nodo last;      //Apuntador al ultimo Nodo de la lista.
 
 
+    //------------------------------------------------------------------------------------------------//
+
+
     //Constructora de la clase IntegerOrderedDoubleList. Crea una lista vacia.
     public DoubleList(){}
+
+    //------------------------------------------------------------------------------------------------//
 
 
     //Metodos de la clase IntegerOrderedDoubleList.
@@ -65,6 +70,9 @@ public class DoubleList {
     }
 
 
+    //------------------------------------------------------------------------------------------------//
+
+
     public Boolean delete(Integer i){
 
         //Mira si la lista esta vacia. De ser asi devuelve false (No tiene nada que borrar).
@@ -118,6 +126,9 @@ public class DoubleList {
             }
         }
     }
+
+    //------------------------------------------------------------------------------------------------//
+
 
     public ArrayList<Integer> list(){
 

@@ -11,15 +11,23 @@ public class IntegerStackOrQueue {
 		this.mode = 0;
 		this.base = null;
 	}
+
+	//------------------------------------------------------------------------------------------------//
+
 	public void setStackMode() {
 		this.mode = 0;
 	}
+
 	public void setQueueMode() {
 		this.mode = 1;
 	}
+
 	public int getMode() {
 		return this.mode;
 	}
+
+	//------------------------------------------------------------------------------------------------//
+
 	public void insert(Integer i) {
 		Node newNode = new Node(i);
 		if (this.base == null) {
@@ -38,6 +46,10 @@ public class IntegerStackOrQueue {
 			this.base = newNode;
 		}
 	}
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	Integer get() {
 		if (this.base == null) {
 			return null;
@@ -63,6 +75,10 @@ public class IntegerStackOrQueue {
 		}
 		return result;
 	}
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	public ArrayList<Integer> list() {
 		ArrayList<Integer> lista = new ArrayList<>(); // ArrayList para almacenar enteros
 		/*Integer intPointer;

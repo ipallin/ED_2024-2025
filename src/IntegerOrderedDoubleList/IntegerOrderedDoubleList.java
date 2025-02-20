@@ -11,6 +11,9 @@ public class IntegerOrderedDoubleList {
     public IntegerOrderedDoubleList() {
     }
 
+    //------------------------------------------------------------------------------------------------//
+
+
     // métodos
     public void insert(Integer i){
         if (this.first==null) {
@@ -43,6 +46,11 @@ public class IntegerOrderedDoubleList {
             }
         }
     }
+
+    //------------------------------------------------------------------------------------------------//
+
+
+
     Boolean delete (Integer i){
         if (this.first == null){
             return false;
@@ -59,6 +67,10 @@ public class IntegerOrderedDoubleList {
             }
         }return false;
     }
+
+    //------------------------------------------------------------------------------------------------//
+
+
     public ArrayList<Integer> list(){
         ArrayList<Integer> lista = new ArrayList<Integer>(); // inicializa lista vacía
         Nodo actual = this.first;

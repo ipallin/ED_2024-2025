@@ -12,7 +12,10 @@ public class IntegerDynamic2Dmatrix {
 		numRows = 0;
 		numColumns = 0;
 	}
-	
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	public void set(int row, int column, int value) {
 		
 		MatrixNode aux;
@@ -51,8 +54,10 @@ public class IntegerDynamic2Dmatrix {
 			}
 		}
 	}
-	
-	
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	// A�ade tantas filas nuevas como indique el par�metro
 	private void addNewRows(int numNewRows) {
 		
@@ -75,7 +80,10 @@ public class IntegerDynamic2Dmatrix {
 			numRows++;
 		}
 	}
-	
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	// Crear una fila con tantos elementos como indique el n�mero de columnas actual (numColumns)
 	// La fina est� desconectada de la matriz
 	private MatrixNode newRow() {
@@ -94,7 +102,11 @@ public class IntegerDynamic2Dmatrix {
 		
 		return init;
 	}
-	
+
+
+	//------------------------------------------------------------------------------------------------//
+
+
 	// A�ade tantas columnas nuevas como indique el par�metro
 	private void addNewColumns(int numNewColumns) {
 		
@@ -122,8 +134,12 @@ public class IntegerDynamic2Dmatrix {
 			aux = newNode;
 		}
 	}
-	
-	
+
+
+	//------------------------------------------------------------------------------------------------//
+
+
+
 	// Devuelve la referencia a la posici�n (row,col) dentro de la matriz
 	private MatrixNode positionToNode(int row, int col) {
 		
@@ -146,7 +162,12 @@ public class IntegerDynamic2Dmatrix {
 		return positionToNode(row,column).value;
 		
 	}
-	
+
+
+	//------------------------------------------------------------------------------------------------//
+
+
+
 	public String toString() {
 		
 		MatrixNode aux;

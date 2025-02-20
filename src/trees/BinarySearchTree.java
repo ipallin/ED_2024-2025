@@ -83,7 +83,6 @@ public class BinarySearchTree {
 
     //-----------------------------------------------------------------------------------------//
 
-    //////////////////////////////////////////////////////////////
 // SUMA DE LOS NODOS
 
     public Integer sum() {
@@ -100,8 +99,8 @@ public class BinarySearchTree {
 
     }
 
+    //------------------------------------------------------------------------------------------------//
 
-    //////////////////////////////////////////////////////////////
 //CONTAR NODOS QUE PERTENEZCAN A UN RANGO
 
     public Integer countInRange(Integer min, Integer max) {
@@ -124,9 +123,9 @@ public class BinarySearchTree {
 
     }
 
+    //------------------------------------------------------------------------------------------------//
 
 
-    //////////////////////////////////////////////////////////////
     //CONTAR NÚMERO DE NODOS
 
     public Integer numNodes() {
@@ -143,7 +142,9 @@ public class BinarySearchTree {
 
     }
 
-    //////////////////////////////////////////////////////////////
+    //------------------------------------------------------------------------------------------------//
+
+
 // VALOR MEDIO DE LOS NODOS
 
     public double avg() {
@@ -157,6 +158,4 @@ public class BinarySearchTree {
         return (double) sum / numNodes;
 
     }
-
-
 }

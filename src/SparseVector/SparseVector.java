@@ -1,89 +1,113 @@
 package SparseVector;
 
 public class SparseVector {
-    Integer counter;
-    Nodo first;
-    Integer value;
-    String lista;
+    private Node first;
+    private int size;
 
     public SparseVector(Integer size) {
+        this.size = size;
+        this.first = null;
     }
 
-    // asigna el valor especificado en el index correspondiente
+    //----------------------------------------------------------------------------------------//
+
     public boolean setValue(Integer index, Integer value) {
-        if (index < 1) {
+        if (index < 1 || index > size || value == 0) {
             return false;
-        } else {
-            if (this.first == null) {
-                Nodo nuevo = new Nodo(value);
-                this.first = nuevo;
-                return true;
-            } else {
-                return true;
+        }
 
+        Node current = first;
+        while (current != null) {
+            if (current.index == index) {
+                current.value = value; // Actualizar valor existente
+                return true;
             }
+            current = current.next;
         }
-    }
-    // si el index es menor que 1 devuelve false y si no recorre la estructura hasta encontrar el nodo deseado y sobre este realiza la operacion de borrado
-    boolean resetIndex (Integer index){
-        if (index < 1) {
-            return false;
-        } else {
-            Nodo actual = first;
-            while (actual.next != null && actual.info != index) {
-                actual = actual.next;
-            }
-            actual.prev.next = actual.next;
-            actual.next.prev = actual.prev;
-            return true;
+
+        Node newNode = new Node(index, value);
+        newNode.next = first;
+        if (first != null) {
+            first.prev = newNode;
         }
+        first = newNode;
+        return true;
     }
 
-    // Recorre la lista en busca del con el index especificado y cuando lo encuentra devuelve el valor del mismo
-    public Integer getValue (Integer index) {
-        Nodo actual = first;
-        if (actual.info < 1) {
+    //----------------------------------------------------------------------------------------//
+
+
+    public boolean resetIndex(Integer index) {
+        if (index < 1 || index > size) {
+            return false;
+        }
+
+        Node current = first;
+        while (current != null) {
+            if (current.index == index) {
+                if (current.prev != null) {
+                    current.prev.next = current.next;
+                } else {
+                    first = current.next;
+                }
+                if (current.next != null) {
+                    current.next.prev = current.prev;
+                }
+                return true;
+            }
+            current = current.next;
+        }
+        return true; // Si no existe, consideramos que ya está "reseteado"
+    }
+
+
+    //----------------------------------------------------------------------------------------//
+
+
+    public Integer getValue(Integer index) {
+        if (index < 1 || index > size) {
             return null;
         }
-        while (actual.next != null) {
-            if (actual.info == index) {
-                value = actual.info;
+
+        Node current = first;
+        while (current != null) {
+            if (current.index == index) {
+                return current.value;
             }
+            current = current.next;
         }
-        return value;
+        return 0; // Si no está en la lista, su valor es 0
     }
 
-    // suma los valores de
-    public Integer noZeros () {
-        counter = 0;
-        Nodo actual = first;
-        while (actual.next != null) {
-            if (actual.info != 0) {
-                counter++;
-            }
-            actual = actual.next;
+    //----------------------------------------------------------------------------------------//
+
+
+    public Integer noZeros() {
+        int count = 0;
+        Node current = first;
+        while (current != null) {
+            count++;
+            current = current.next;
         }
-        return counter;
+        return count;
     }
 
-    // en un mismo string se concatenan todos los index y value
-    public String toString () {
-        Nodo actual = first;
-        lista = null;
-        while (actual.next != null){
-            lista = lista +"index:"+ actual.index +"value:"+ actual.info+",";
-            actual = actual.next;
-        }
-        return lista;
-    }
+    //----------------------------------------------------------------------------------------//
 
+
+    @Override
+    public String toString() {
+        if (first == null) {
+            return "[Zero vector]";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        Node current = first;
+        while (current != null) {
+            sb.append("[index=").append(current.index)
+                    .append(", value=").append(current.value).append("] ");
+            current = current.next;
+        }
+        return sb.toString().trim();
+    }
 }
-
-
-
-
-
-
-
-
-
